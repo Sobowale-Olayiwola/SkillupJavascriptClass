@@ -56,7 +56,7 @@ It is good to note that map() doesn't change the original array. We should use a
 returns a value and we also use the return array from the map function.
 
 ```js
-const numbers = [23, 17, 40, 86];
+const numbers = [ 23, 17, 40, 86 ];
 const newArray = numbers.map( number => number * 7 )
 console.log(newArray); // [ 161, 119, 280, 602 ]
 
@@ -83,7 +83,7 @@ throughout the array, and ultimately becomes the final, single resulting value. 
 does not execute the function for array elements without values and this method does not change the original array.
 
 ```js
-const age = [50, 32, 35, 46];
+const age = [ 50, 32, 35, 46 ];
 const reducer = (accumulator, currentValue) => (accumulator + currentValue);
 
 // 50 + 32 + 35 + 46
@@ -93,4 +93,18 @@ console.log(age.reduce(reducer));
 let meanAge = (age.reduce(reducer)) / age.length;
 
 console.log(meanAge); //40.75
+```
+## Example of HOF
+```js
+getLengthOfString = text => text.length;
+
+validateWord = ( passedFunction ) => {
+    if ( passedFunction > 0 ){
+        return 'This is an actual string in the dictionary'
+    }else{
+      return 'An actual word must consist of a particular length '
+    }
+}
+
+validateWord(getLengthOfString('Olayiwola')); //This is an actual string in the dictionary
 ```
